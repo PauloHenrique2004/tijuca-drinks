@@ -1,0 +1,38 @@
+/node_modules
+/public/hot
+/public/storage
+/public/livewire-tmp
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/public/storage_*
+
+# Editor files (IDE)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Windows / Mac files
+.DS_Store
+Thumbs.db
+*.Zone.Identifier
+
+# Ignorar pastas de banco de dados e arquivos SQL pesados
+mariadb_data/
+*.sql
+
+# Ignorar helpers de IDE
+_ide_helper.php
+_ide_helper_models.php
+.idea/
