@@ -11,7 +11,7 @@
     <?php echo $__env->make('layouts.site.includes.style', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 </head>
 <body class="fixed-bottom-padding">
-
+    
 <?php if (! ($lojaAberta)): ?>
     <div
         style=" width: 100%; background: #000; text-align: center; font-weight: bold; text-transform: uppercase; color: #fff; height: 30px; padding-top: 6px; ">
