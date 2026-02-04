@@ -13,17 +13,7 @@
         </a>
 
         <!----------- Item opções/ações desktop ----------->
-        <div class="cart-items-number d-flex ml-auto item-opcoes-desktop">
-            <input wire:click.prevent="alterarQuantidade({{ $pedidoProduto->id }}, 'remover')" type='button'
-                   value='-' class='qtyminus btn btn-success btn-sm' field='quantity'/>
 
-            <div class='qty form-control' style="margin-top: 6px">
-                {{ $pedidoProduto->quantidade }}
-            </div>
-
-            <input wire:click.prevent="alterarQuantidade({{ $pedidoProduto->id }}, 'adicionar')" type='button'
-                   value='+' class='qtyplus btn btn-success btn-sm' field='quantity'/>
-        </div>
 
         <div wire:click="removerPedidoProduto({{ $pedidoProduto->id }})" class="d-flex ml-auto item-opcoes-desktop"
              style="font-size: 20px; color: #797979; padding-left: 7px">
@@ -34,19 +24,9 @@
 
     <!----------- Item opções/ações mobile ----------->
     <div class="d-flex align-items-center p-3 item-opcoes-mobile">
-        <a href=""class="ml-3 text-dark text-decoration-none w-100"></a>
+      
 
-        <div class="cart-items-number d-flex ml-auto">
-            <input wire:click.prevent="alterarQuantidade({{ $pedidoProduto->id }}, 'remover')" type='button'
-                   value='-' class='qtyminus btn btn-success btn-sm' field='quantity'/>
-
-            <div class='qty form-control' style="margin-top: 6px">
-                {{ $pedidoProduto->quantidade }}
-            </div>
-
-            <input wire:click.prevent="alterarQuantidade({{ $pedidoProduto->id }}, 'adicionar')" type='button'
-                   value='+' class='qtyplus btn btn-success btn-sm' field='quantity'/>
-        </div>
+      
 
         <div wire:click="removerPedidoProduto({{ $pedidoProduto->id }})" class="d-flex ml-auto"
              style="font-size: 20px; color: #797979; padding-left: 7px">
