@@ -78,6 +78,8 @@ class Produto extends Component
         $this->produto->preco_promocional = null;
         $this->produto->promocional = 0;
 
+        $this->produto->destaque_id = $this->produto->destaque_id ?: null;
+
         if (empty($this->produto->produto_subcategoria_id)) {
             $this->produto->produto_subcategoria_id = null;
         }
