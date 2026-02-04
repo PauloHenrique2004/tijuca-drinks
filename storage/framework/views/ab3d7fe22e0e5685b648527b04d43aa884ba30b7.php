@@ -10,19 +10,8 @@
 
             <h6 class="mb-1" style="font-size: 14px"><?php echo e($pedidoProduto->nome); ?></h6>
 
-            <?php if($pedidoProduto->total != $pedidoProduto->preco): ?>
-                <p class="text-muted mb-2">
-                    R$ <?php echo e(number_format($pedidoProduto->preco, 2, ',', '.')); ?>
 
-                </p>
-            <?php endif; ?>
-
-            <div class="d-flex align-items-center">
-                <p class="total_price font-weight-bold m-0">
-                    R$ <?php echo e(number_format($pedidoProduto->total, 2, ',', '.')); ?>
-
-                </p>
-            </div>
+      
         </a>
 
         <!----------- Item opções/ações desktop ----------->

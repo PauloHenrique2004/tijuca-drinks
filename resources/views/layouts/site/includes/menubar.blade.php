@@ -48,16 +48,11 @@
         </ul>
 
         <div class="list-unstyled form-inline mb-0 ml-auto flex-nowrap">
-            <a href="#contato" class="btn-link-header text-menu px-3 py-2">
-                Contato
+            <a href="#contato" 
+            class="btn-cardapio d-inline-flex align-items-center ml-2 px-3 py-2">
+            <i class="icofont-envelope mr-2"></i>   
+                <span>Contato</span>
             </a>
-
-
-<a href="/#destaques" 
-   class="btn-cardapio d-inline-flex align-items-center ml-2 px-3 py-2">
-    <i class="icofont-restaurant-menu mr-2"></i>
-    <span>Cardápio</span>
-</a>
         </div>
 
     </div>

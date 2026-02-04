@@ -54,12 +54,6 @@
             <a href="#contato"><i class="icofont-email mr-2"></i> Contato</a>
         </li>
 
-        <li>
-            <a href="<?php echo e(route('promocoes')); ?>#slides" style="color:#620886">
-                <i class="icofont-sale-discount mr-2"></i> Promoções
-            </a>
-        </li>
-
         <?php if(Auth::check()): ?>
             <li>
                 <a href="<?php echo e(route('user.minha-conta')); ?>">

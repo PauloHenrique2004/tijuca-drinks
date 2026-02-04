@@ -7,7 +7,7 @@
 
                         <div class="pt-3 pb-2 osahan-categories">
                             <div class="d-flex align-items-center mb-3">
-                                <h5 class="m-0 titulo-sessoes">O QUE VOCÊ ESTÁ PRCURANDO</h5>
+                                <h5 class="m-0 titulo-sessoes">O QUE VOCÊ ESTÁ PROCURANDO</h5>
                             </div>
 
                             <div class="categories-slider">

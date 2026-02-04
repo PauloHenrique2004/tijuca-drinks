@@ -10,17 +10,6 @@
 
             <h6 class="mb-1" style="font-size: 14px">{{ $pedidoProduto->nome }}</h6>
 
-            @if($pedidoProduto->total != $pedidoProduto->preco)
-                <p class="text-muted mb-2">
-                    R$ {{ number_format($pedidoProduto->preco, 2, ',', '.') }}
-                </p>
-            @endif
-
-            <div class="d-flex align-items-center">
-                <p class="total_price font-weight-bold m-0">
-                    R$ {{ number_format($pedidoProduto->total, 2, ',', '.') }}
-                </p>
-            </div>
         </a>
 
         <!----------- Item opções/ações desktop ----------->

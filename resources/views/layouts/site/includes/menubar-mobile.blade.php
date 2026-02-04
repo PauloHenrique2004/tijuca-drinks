@@ -50,12 +50,6 @@
             <a href="#contato"><i class="icofont-email mr-2"></i> Contato</a>
         </li>
 
-        <li>
-            <a href="{{ route('promocoes') }}#slides" style="color:#620886">
-                <i class="icofont-sale-discount mr-2"></i> Promoções
-            </a>
-        </li>
-
         @if (Auth::check())
             <li>
                 <a href="{{ route('user.minha-conta') }}">
