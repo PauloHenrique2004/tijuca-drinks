@@ -10,8 +10,6 @@
 
             <h6 class="mb-1" style="font-size: 14px"><?php echo e($pedidoProduto->nome); ?></h6>
 
-
-      
         </a>
 
         <!----------- Item opções/ações desktop ----------->

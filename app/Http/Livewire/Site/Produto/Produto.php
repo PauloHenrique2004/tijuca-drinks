@@ -16,6 +16,7 @@ class Produto extends Component
     protected $listeners = ['syncPedidoProdutoGrupo'];
 
     public $produto;
+    public $quantidade = 1;
     public $total = 0;
 
     public $galeria = [];
@@ -33,12 +34,14 @@ class Produto extends Component
         return view('livewire.site.produto.produto');
     }
 
-    public function updated($name)
-    {
-        if ($name == 'quantidade') {
-            $this->quantidadeUpdated();
-        }
+ /*
+public function updated($name)
+{
+    if ($name == 'quantidade') {
+        $this->quantidadeUpdated();
     }
+}
+*/
 
     private function inicializar($produtoId)
     {
@@ -95,7 +98,7 @@ class Produto extends Component
         $this->imagemAtiva = asset($this->galeria[$this->imagemAtivaIndex]->imagem);
     }
 
-    private function recalcularTotal()
+   /* private function recalcularTotal()
     {
         $this->total = $this->produto->preco_promocional
             ? $this->produto->preco_promocional
@@ -105,5 +108,15 @@ class Produto extends Component
         $this->total *= $this->quantidade;
 
         return $this->total;
-    }
+    } */
+
+
+
+private function recalcularTotal()
+{
+    // Deixamos o total como 0 ou apenas ignoramos, 
+    // já que o preço não aparecerá no carrinho.
+    $this->total = 0;
+    return $this->total;
+}
 }

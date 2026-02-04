@@ -59,7 +59,7 @@
                         <div wire:click.prevent="fazerPedido"
                              class="btn btn-warning p-3 rounded btn-lg btn-adicionar
                     <?php if($temObrigatorios && !$pedidoProdutoGrupoValido): ?> disabled <?php endif; ?>">
-                            <div style="float:left">Adicionar</div>
+                            <div style="width: 100%; text-align: center">Adicionar</div>
                        
                         </div>
 
@@ -69,14 +69,6 @@
                     </div>
 
 
-                    <div class="cart-items-number d-flex">
-                        <input type='button' value='-' class='qtyminus btn btn-success btn-sm'
-                               wire:click="alterarQuantidade('remover')"/>
-                        <input type='text' maxlength="3" wire:model.debounce.15000ms="quantidade" name='quantity'
-                               class='qty form-control'/>
-                        <input type='button' value='+' class='qtyplus btn btn-success btn-sm'
-                               wire:click="alterarQuantidade('adicionar')"/>
-                    </div>
                 </div>
             </div>
 
@@ -131,16 +123,6 @@
                 <?php endif; ?>
             </div>
 
-            <div class="cart-items-number d-flex">
-                <input type='button' value='-' class='qtyminus btn btn-success btn-sm'
-                       wire:click="alterarQuantidade('remover')"/>
-                <input type="text" maxlength="3"
-                       wire:model.debounce.15000ms="quantidade"
-                       name="quantity"
-                       class="qty form-control"/>
-                <input type='button' value='+' class='qtyplus btn btn-success btn-sm'
-                       wire:click="alterarQuantidade('adicionar')"/>
-            </div>
         </div>
     </div>
 

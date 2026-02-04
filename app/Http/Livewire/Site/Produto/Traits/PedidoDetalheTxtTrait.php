@@ -13,7 +13,7 @@ public function pedidoTxt($pedido, $newLine, $space, $qtdPessoas = 1)
 
     // Usamos $pedido->produtos()->get() para garantir que pegamos do banco
     foreach ($pedido->produtos as $produto) {
-        $txt .= "✅ {$produto->quantidade}x {$produto->nome}" . $newLine;
+        $txt .= "✅ {$produto->nome}" . $newLine;
     }
 
     //dd($txt);
