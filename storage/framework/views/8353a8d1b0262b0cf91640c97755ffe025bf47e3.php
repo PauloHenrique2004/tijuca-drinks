@@ -1,5 +1,5 @@
 <?php $__env->startSection('title', 'Pedidos - '); ?>
-<?php $__env->startSection('header-title', 'Pedidos'); ?>
+<?php $__env->startSection('header-title', 'teste'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="card-body">
@@ -88,15 +88,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('gestor.pedido-detalhe-txt', ['pedido' => $pedido])->html();
-} elseif ($_instance->childHasBeenRendered('JSP6ODA')) {
-    $componentId = $_instance->getRenderedChildComponentId('JSP6ODA');
-    $componentTag = $_instance->getRenderedChildComponentTagName('JSP6ODA');
+} elseif ($_instance->childHasBeenRendered('94wLS3p')) {
+    $componentId = $_instance->getRenderedChildComponentId('94wLS3p');
+    $componentTag = $_instance->getRenderedChildComponentTagName('94wLS3p');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('JSP6ODA');
+    $_instance->preserveRenderedChild('94wLS3p');
 } else {
     $response = \Livewire\Livewire::mount('gestor.pedido-detalhe-txt', ['pedido' => $pedido]);
     $html = $response->html();
-    $_instance->logRenderedChild('JSP6ODA', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('94wLS3p', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

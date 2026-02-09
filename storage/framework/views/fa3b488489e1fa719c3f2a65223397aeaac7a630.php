@@ -32,19 +32,28 @@
                             </a>
 
                             <!-- Remover -->
-                            <a data-confirm="Tem certeza?" class="btn btn-sm btn-danger" rel="nofollow"
-                               data-method="delete"
-                               href="#"
-                               onclick="event.preventDefault(); document.getElementById('delete-form-<?php echo e($usuario->id); ?>').submit();">
-                                <i class="fas fa-trash" aria-hidden="true"></i> Excluir
-                            </a>
+                         
+                                <?php if($usuario->pedidos()->count() == 0): ?>
+                                    
+                                    
+                                    <a data-confirm="Tem certeza?" class="btn btn-sm btn-danger" rel="nofollow"
+                                    data-method="delete" href="#"
+                                    onclick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir este cliente?')) { document.getElementById('delete-form-<?php echo e($usuario->id); ?>').submit(); }">
+                                        <i class="fas fa-trash" aria-hidden="true"></i> Excluir
+                                    </a>
 
-                            <form id="delete-form-<?php echo e($usuario->id); ?>"
-                                  action="<?php echo e(route('gestor.usuarios.destroy', $usuario->id)); ?>" method="POST"
-                                  style="display: none;">
-                                <?php echo csrf_field(); ?>
-                                <?php echo method_field('delete'); ?>
-                            </form>
+                                    
+                                    <form id="delete-form-<?php echo e($usuario->id); ?>"
+                                        action="<?php echo e(route('gestor.usuarios.destroy', $usuario->id)); ?>" method="POST"
+                                        style="display: none;">
+                                        <?php echo csrf_field(); ?>
+                                        <?php echo method_field('delete'); ?>
+                                    </form>
+
+                                <?php else: ?>
+                                    
+                                    <span class="badge badge-secondary">Possui vendas concluídas</span>
+                                <?php endif; ?>
                             <!-- / Remover -->
                         </td>
                         <!-- / Ações -->

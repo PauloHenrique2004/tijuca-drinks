@@ -34,19 +34,28 @@
                             </a>
 
                             <!-- Remover -->
-                            <a data-confirm="Tem certeza?" class="btn btn-sm btn-danger" rel="nofollow"
-                               data-method="delete"
-                               href="#"
-                               onclick="event.preventDefault(); document.getElementById('delete-form-{{ $usuario->id }}').submit();">
-                                <i class="fas fa-trash" aria-hidden="true"></i> Excluir
-                            </a>
+                         {{-- Verifica se NÃO tem nenhum pedido com status 'concluido' --}}
+                                @if($usuario->pedidos()->count() == 0)
+                                    
+                                    {{-- O BOTÃO SÓ APARECE SE A CONDIÇÃO ACIMA FOR VERDADEIRA --}}
+                                    <a data-confirm="Tem certeza?" class="btn btn-sm btn-danger" rel="nofollow"
+                                    data-method="delete" href="#"
+                                    onclick="event.preventDefault(); if(confirm('Tem certeza que deseja excluir este cliente?')) { document.getElementById('delete-form-{{ $usuario->id }}').submit(); }">
+                                        <i class="fas fa-trash" aria-hidden="true"></i> Excluir
+                                    </a>
 
-                            <form id="delete-form-{{ $usuario->id }}"
-                                  action="{{ route('gestor.usuarios.destroy', $usuario->id) }}" method="POST"
-                                  style="display: none;">
-                                @csrf
-                                @method('delete')
-                            </form>
+                                    {{-- FORMULÁRIO OCULTO --}}
+                                    <form id="delete-form-{{ $usuario->id }}"
+                                        action="{{ route('gestor.usuarios.destroy', $usuario->id) }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+
+                                @else
+                                    {{-- SE TIVER VENDA CONCLUÍDA, MOSTRA APENAS O AVISO --}}
+                                    <span class="badge badge-secondary">Possui vendas concluídas</span>
+                                @endif
                             <!-- / Remover -->
                         </td>
                         <!-- / Ações -->
