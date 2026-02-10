@@ -7,12 +7,12 @@
                 <aside class="col-md-4 mb-4">
                     <h6 class="title mb-3" style="color: #fff !important;">Precisa de ajuda?</h6>
                     <ul class="list-unstyled list-padding">
-                        @if($configuracoes->telefone1 || $configuracoes->telefone2)
+                   
                             <li class="footer-li mb-2">
                                 <i class="fa fa-question-circle"></i>
-                                <span>Atendimento de segunda a sábado.</span>
+                                <span>{{ $configuracoes->horario_funcionamento }}</span>
                             </li>
-                        @endif
+                    
 
                         <li class="footer-li mb-2">
                             <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -99,9 +99,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-2 mb-md-0">
-                    @if($configuracoes->horario_funcionamento)
-                        <i class="fa fa-clock-o"></i> {{ $configuracoes->horario_funcionamento }} |
-                    @endif
+
                     <span>© {{ config('app.name') }}</span>
                 </div>
 
