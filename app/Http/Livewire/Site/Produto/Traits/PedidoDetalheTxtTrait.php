@@ -22,6 +22,7 @@ public function pedidoTxt($pedido, $newLine, $space, $qtdPessoas = 1)
     
     $evento = ($pedido->formaEntrega) ? $pedido->formaEntrega->nome : 'A combinar';
     $txt .= "📍 *Tipo de Evento:* {$evento}" . $newLine;
+    $txt .= "🥂 *Tipo de Bebida:* {$pedido->tipo_bebida}" . $newLine;
     $txt .= "👥 *Qtd. de Pessoas:* {$qtdPessoas}" . $newLine;
     
     $txt .= "---------------------------" . $newLine;

@@ -6,7 +6,7 @@
             <div class="modal-body p-4">
                 <div style="font-size: 16px; text-transform: uppercase; font-weight: 800; color: #852525; text-align: center; line-height: 1.6">
                     Atenção!<br>
-                    Para continuar com seu pedido e finalizar a compra, é necessário realizar a autenticação.
+                    Para continuar com seu pedido é necessário realizar a autenticação.
                 </div>
             </div>
 

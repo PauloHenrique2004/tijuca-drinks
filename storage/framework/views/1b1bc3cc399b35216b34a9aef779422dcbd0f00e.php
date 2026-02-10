@@ -8,7 +8,10 @@
             <!-- 2. Evento (era forma_entrega) -->
             <?php echo $__env->make('livewire.site.carrinho.forma_entrega._forma_entrega', compact('currentCard', 'pedido', 'formasEntrega'), \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
-            <!-- 3. Qtd Pessoas (nova seção) -->
+               <!-- 3. Evento (tipo bebidas) -->
+           <?php echo $__env->make('livewire.site.carrinho.tipo_bebidas._tipo_bebidas', compact('currentCard', 'pedido'), \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
+            <!-- 4. Qtd Pessoas (nova seção) -->
             <?php echo $__env->make('livewire.site.carrinho.quantidade_pessoas._quantidade_pessoas', compact('currentCard', 'pedido'), \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
     </div>
@@ -17,15 +20,15 @@
 <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('site.carrinho.pedido-whatsapp', [])->html();
-} elseif ($_instance->childHasBeenRendered('Td0Prd9')) {
-    $componentId = $_instance->getRenderedChildComponentId('Td0Prd9');
-    $componentTag = $_instance->getRenderedChildComponentTagName('Td0Prd9');
+} elseif ($_instance->childHasBeenRendered('Haxg5FY')) {
+    $componentId = $_instance->getRenderedChildComponentId('Haxg5FY');
+    $componentTag = $_instance->getRenderedChildComponentTagName('Haxg5FY');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('Td0Prd9');
+    $_instance->preserveRenderedChild('Haxg5FY');
 } else {
     $response = \Livewire\Livewire::mount('site.carrinho.pedido-whatsapp', []);
     $html = $response->html();
-    $_instance->logRenderedChild('Td0Prd9', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('Haxg5FY', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

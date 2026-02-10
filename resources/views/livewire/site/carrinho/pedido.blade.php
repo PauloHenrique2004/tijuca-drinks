@@ -8,7 +8,10 @@
             <!-- 2. Evento (era forma_entrega) -->
             @include('livewire.site.carrinho.forma_entrega._forma_entrega', compact('currentCard', 'pedido', 'formasEntrega'))
 
-            <!-- 3. Qtd Pessoas (nova seção) -->
+               <!-- 3. Evento (tipo bebidas) -->
+           @include('livewire.site.carrinho.tipo_bebidas._tipo_bebidas', compact('currentCard', 'pedido'))
+
+            <!-- 4. Qtd Pessoas (nova seção) -->
             @include('livewire.site.carrinho.quantidade_pessoas._quantidade_pessoas', compact('currentCard', 'pedido'))
         </div>
     </div>

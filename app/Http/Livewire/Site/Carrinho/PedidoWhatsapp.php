@@ -26,7 +26,7 @@ class PedidoWhatsapp extends Component
      * * @param int $id
      * @param int|null $qtdPessoas
      */
-   public function whatsAppPedido($id, $qtdPessoas = 1)
+   public function whatsAppPedido($id, $qtdPessoas = 1, $tipoBebida = null)
 {
     // O segredo está no ->with('produtos') para carregar os itens do banco agora!
     $pedido = \App\Models\Pedido\Pedido::with('produtos')->find($id);
@@ -36,6 +36,7 @@ class PedidoWhatsapp extends Component
     $pedido->session = null;
     $pedido->status = 2; 
     $pedido->quantidade_pessoas = $qtdPessoas;
+    $pedido->tipo_bebida = $tipoBebida;
     $pedido->save();
 
     // Gerar link

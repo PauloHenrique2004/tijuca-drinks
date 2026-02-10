@@ -40,6 +40,7 @@
                     <th>ID</th>
                     <th>Cliente</th>
                     <th>Produtos</th>
+                    <th>Tipo de bebida</th>
                     <th>Tipo de evento</th>
                     <th>Realizado em</th>
                 </tr>
@@ -65,6 +66,9 @@
                                 <i class="fas fa-eye"></i> Visualizar
                             </div>
                         </td>
+                    
+                        <td>{{ $pedido->tipo_bebida }}</td>
+               
 
                         <td>
                             {{ $pedido->formaEntrega ? $pedido->formaEntrega->nome : '' }}

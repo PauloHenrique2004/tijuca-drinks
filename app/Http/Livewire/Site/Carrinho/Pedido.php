@@ -26,6 +26,7 @@ class Pedido extends Component
 
     protected $rules = [
         'pedido.forma_entrega_id' => ['required'],
+        'pedido.tipo_bebida'       => 'required|string',
         'quantidade_pessoas' => 'required|integer|min:1',
     ];
 
@@ -88,28 +89,35 @@ if ($name == 'pedido.forma_entrega_id') {
     /**
      * Método principal para finalizar o orçamento
      */
-    public function comprar()
-    {
-        $this->validate();
+public function comprar()
+{
+    // 1. Limpeza e Validação (Lógica que estava na Trait)
+    $this->removerPedidoProdutosInativos();
 
-        // Verifica se há itens no pedido antes de prosseguir
-        if ($this->pedido->produtos()->count() == 0) {
-            $this->addError('pedido', 'Adicione pelo menos um item ao seu orçamento.');
-            return;
-        }
-
-        if (Auth::check()) {
-            $this->pedido->cliente_id = Auth::user()->id;
-        }
-
-        // Salva tipo de evento e quantidade de pessoas
-        $this->pedido->quantidade_pessoas = $this->quantidade_pessoas;
-        $this->pedido->save();
-
-        // Dispara o evento para o componente de WhatsApp
-        $this->emit('whatsAppPedido', $this->pedido->id, $this->quantidade_pessoas);
-        
-        // Se houver modal de visualização:
-        $this->emit('pedido-whatsapp-visualizar');
+    if (!$this->pedidoValidoVerificar()) {
+        // Se o botão estava habilitado mas algo falhou, paramos aqui
+        return; 
     }
+
+    // 2. Vincula o cliente se estiver logado
+    if (Auth::check()) {
+        $this->pedido->cliente_id = Auth::id();
+    }
+
+    // 3. SALVAMENTO NO BANCO (Aqui resolvemos o problema do Tipo Bebida)
+    $this->pedido->quantidade_pessoas = $this->quantidade_pessoas;
+    
+    // Garantimos que o campo do modelo receba o valor que está no wire:model
+    // Se o select estiver vinculado a pedido.tipo_bebida, o save() abaixo já basta.
+    $this->pedido->save();
+
+    // 4. DISPARO PARA O WHATSAPP
+    // Importante: Passamos o 3º parâmetro (bebida) para o link ser gerado corretamente
+    $this->emit('whatsAppPedido', 
+        $this->pedido->id, 
+        $this->quantidade_pessoas, 
+        $this->pedido->tipo_bebida
+    );
+
+}
 }

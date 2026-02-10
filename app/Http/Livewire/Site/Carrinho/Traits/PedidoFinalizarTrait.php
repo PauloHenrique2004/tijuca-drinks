@@ -13,29 +13,6 @@ trait PedidoFinalizarTrait
      * Mantemos o nome 'comprar' para não quebrar o HTML original,
      * mas a função agora serve para finalizar a solicitação de orçamento.
      */
-    public function comprar()
-    {
-        $this->removerPedidoProdutosInativos();
-
-        // Validação de segurança antes de processar
-        if (!$this->pedidoValidoVerificar()) {
-            return;
-        }
-
-        // Se o usuário estiver logado, vincula ao pedido
-        if (Auth::check()) {
-            $this->pedido->cliente_id = Auth::user()->id;
-        }
-
-        // Sincroniza a quantidade de pessoas antes de salvar
-        $this->pedido->quantidade_pessoas = $this->quantidade_pessoas;
-        
-        $this->pedido->save();
-
-        // Emitindo evento para o componente Whatsapp com o ID do pedido
-        // Adicionamos a quantidade de pessoas como segundo parâmetro para facilitar
-        $this->emit('whatsAppPedido', $this->pedido->id, $this->quantidade_pessoas);
-    }
 
     /**
      * Atualiza o estado do botão na tela (Habilitado/Desabilitado)
@@ -59,7 +36,10 @@ trait PedidoFinalizarTrait
     // 3. Tipo de Evento
     if (!$this->pedido->forma_entrega_id) return false;
 
-    // 4. Quantidade de Pessoas (A TRAVA REAL)
+    // 4
+    if (empty($this->pedido->tipo_bebida)) return false;
+
+    // 5. Quantidade de Pessoas (A TRAVA REAL)
     // Se for vazio, nulo, zero ou menor que zero, retorna FALSE
     if (empty($this->quantidade_pessoas) || intval($this->quantidade_pessoas) <= 0) {
         return false;

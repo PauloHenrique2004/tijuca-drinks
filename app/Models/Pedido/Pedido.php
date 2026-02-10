@@ -12,7 +12,7 @@ class Pedido extends Model
     protected $fillable = [
         'session', 'cliente_id', 'cliente_endereco_id', 'forma_entrega_id', 
         'cupom_desconto_id', 'valor_desconto', 'valor_entrega', 'status', 
-        'forma_pagamento_id', 'finalizado_em', 'quantidade_pessoas'
+        'forma_pagamento_id', 'finalizado_em', 'quantidade_pessoas', 'tipo_bebida'
     ];
 
     protected $dates = [
