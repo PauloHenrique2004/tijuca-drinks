@@ -13,7 +13,12 @@
         <div class="card-body p-0 border-top">
             <div class="osahan-order_address p-3">
                 <div class="form-group">
-                    <label>*Selecione o pacote de bebidas</label>
+                    <label class="d-block">
+                        *Selecione o pacote de bebidas 
+                        <small class="text-muted d-block">
+                            (O tipo de bebida influencia diretamente no valor do orçamento)
+                        </small>
+                    </label>   
                     <select wire:model.live="pedido.tipo_bebida" class="form-control">
                         <option value="">Selecione...</option>
                         <option value="Premium">Premium</option>
