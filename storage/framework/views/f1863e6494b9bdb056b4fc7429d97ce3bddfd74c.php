@@ -108,7 +108,7 @@
                 <li class="nav-item">
                     <a href="<?php echo e(route('gestor.horarios.index')); ?>" class="nav-link">
                         <i class="nav-icon fas fa-clock"></i>
-                        <p>Horários</p>
+                        <p>Horário de Disponibilidade <br> de Pedidos</p>
                     </a>
                 </li>
 

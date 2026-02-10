@@ -1,8 +1,11 @@
 @extends('layouts.gestor.gestor')
 
-@section('title', 'Formulário Horários - ')
-@section('header-title', 'Formulário Horário')
+@section('title', 'Horário Configurar Disponibilidade - ')
+@section('header-title', 'Configurar Horário de Disponibilidade de Pedidos')
 
 @section('content')
-    <livewire:gestor.horario :id="$id">
+    <div class="card-body">
+        {{-- Componente Livewire que contém o formulário --}}
+        <livewire:gestor.horario :id="$id">
+    </div>
 @endsection
