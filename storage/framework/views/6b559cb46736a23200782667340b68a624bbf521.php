@@ -12,27 +12,34 @@
         <div class="card-body p-0 border-top">
             <div class="osahan-order_address">
                 <!-- Tipo de Evento (usando FormaEntrega) -->
-                <div class="p-3 col-md-12 form-group">
-                    <label>*Tipo de evento</label>
-                    <select wire:model.live="pedido.forma_entrega_id" class="form-control">
-                        <option value="">Selecione...</option>
-                        <?php $__currentLoopData = $formasEntrega; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $forma): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <option value="<?php echo e($forma->id); ?>"><?php echo e($forma->nome); ?></option>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </select>
-                    <?php $__errorArgs = ['pedido.forma_entrega_id'];
+     <div class="p-3 col-md-12 form-group">
+    <label>*Tipo de evento</label>
+    
+    <select wire:model.live="pedido.forma_entrega_id" class="form-control">
+        <option value="">Selecione...</option>
+        <?php $__currentLoopData = $formasEntrega; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $forma): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <option value="<?php echo e($forma->id); ?>"><?php echo e($forma->nome); ?></option>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    </select>
+    
+    <?php $__errorArgs = ['pedido.forma_entrega_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> 
-                        <div class="text-danger small mt-1"><?php echo e($message); ?></div> 
-                    <?php unset($message);
+        <div class="text-danger small mt-1"><?php echo e($message); ?></div> 
+    <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                </div>
+</div>
             </div>
         </div>
     </div>
 </div>
-<?php /**PATH /var/www/resources/views/livewire/site/carrinho/forma_entrega/_forma_entrega.blade.php ENDPATH**/ ?>
+
+<script>
+    window.addEventListener('abrir-modal-login', event => {
+        $('#usuarioNaoLogadoModal').modal('show');
+    });
+</script><?php /**PATH /var/www/resources/views/livewire/site/carrinho/forma_entrega/_forma_entrega.blade.php ENDPATH**/ ?>

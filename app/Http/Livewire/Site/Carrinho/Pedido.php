@@ -44,6 +44,17 @@ class Pedido extends Component
 
 public function updated($name)
 {
+
+if ($name == 'pedido.forma_entrega_id') {
+        if (!auth()->check()) {
+            // Reseta a escolha do usuário
+            $this->pedido->forma_entrega_id = null;
+            
+            // Dispara o evento do scipt
+            $this->dispatchBrowserEvent('abrir-modal-login');
+            return;
+        }
+    }
     // Sempre que QUALQUER coisa mudar (evento ou pessoas), 
     // a gente roda a validação do botão.
     $this->pedidoValido = $this->pedidoValidoVerificar();

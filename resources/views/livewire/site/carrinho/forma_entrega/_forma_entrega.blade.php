@@ -12,19 +12,27 @@
         <div class="card-body p-0 border-top">
             <div class="osahan-order_address">
                 <!-- Tipo de Evento (usando FormaEntrega) -->
-                <div class="p-3 col-md-12 form-group">
-                    <label>*Tipo de evento</label>
-                    <select wire:model.live="pedido.forma_entrega_id" class="form-control">
-                        <option value="">Selecione...</option>
-                        @foreach($formasEntrega as $forma)
-                            <option value="{{ $forma->id }}">{{ $forma->nome }}</option>
-                        @endforeach
-                    </select>
-                    @error('pedido.forma_entrega_id') 
-                        <div class="text-danger small mt-1">{{ $message }}</div> 
-                    @enderror
-                </div>
+     <div class="p-3 col-md-12 form-group">
+    <label>*Tipo de evento</label>
+    {{-- Removi o wire:change que causava o erro --}}
+    <select wire:model.live="pedido.forma_entrega_id" class="form-control">
+        <option value="">Selecione...</option>
+        @foreach($formasEntrega as $forma)
+            <option value="{{ $forma->id }}">{{ $forma->nome }}</option>
+        @endforeach
+    </select>
+    
+    @error('pedido.forma_entrega_id') 
+        <div class="text-danger small mt-1">{{ $message }}</div> 
+    @enderror
+</div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    window.addEventListener('abrir-modal-login', event => {
+        $('#usuarioNaoLogadoModal').modal('show');
+    });
+</script>
