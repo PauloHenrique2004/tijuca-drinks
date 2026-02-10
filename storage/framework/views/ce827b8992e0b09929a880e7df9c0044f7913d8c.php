@@ -1,11 +1,6 @@
 <?php $__env->startSection('title', 'Horário de Disponibilidade de Pedidos - '); ?>
 <?php $__env->startSection('header-title', 'Horário de Disponibilidade de Pedidos'); ?>
 
-<?php $__env->startSection('card-tools'); ?>
-   <a class="btn btn-primary content animate__animated animate__flipInX" href="<?php echo e(route('gestor.horario')); ?>">
-        <i class="fas fa-plus" aria-hidden="true"></i> Definir Novo Horário
-    </a>
-<?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="card-body">

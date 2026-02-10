@@ -3,11 +3,6 @@
 @section('title', 'Horário de Disponibilidade de Pedidos - ')
 @section('header-title', 'Horário de Disponibilidade de Pedidos')
 
-@section('card-tools')
-   <a class="btn btn-primary content animate__animated animate__flipInX" href="{{ route('gestor.horario') }}">
-        <i class="fas fa-plus" aria-hidden="true"></i> Definir Novo Horário
-    </a>
-@endsection
 
 @section('content')
     <div class="card-body">
