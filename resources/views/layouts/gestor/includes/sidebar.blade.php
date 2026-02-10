@@ -39,12 +39,12 @@
                                 <p>Site - Sobre nós</p>
                             </a>
                         </li>
-                       <!-- <li class="nav-item">
+                       <li class="nav-item">
                             <a href="{{ route('gestor.endereco.dne') }}" class="nav-link">
                                 <i class="nav-icon fas fa-map-marked"></i>
                                 <p>Endereços Atendidos</p>
                             </a>
-                        </li>-->
+                        </li>
 
                         <li class="nav-item">
                             <a href="{{ route('gestor.gestores.index') }}" class="nav-link">

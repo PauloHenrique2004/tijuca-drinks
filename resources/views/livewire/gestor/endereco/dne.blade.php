@@ -78,46 +78,46 @@
                     </tbody>
                 </table>
             </div>
-        @elseif($tipoVisualizacao == 'bairro')
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
+ @elseif($tipoVisualizacao == 'bairro')
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Bairro</th>
+                {{-- Diminuí a largura aqui de 220px para 80px para não sobrar espaço vazio --}}
+                <th style="width: 80px; text-align: center;">Ação</th> 
+            </tr>
+            </thead>
+            <tbody>
+            @if($bairros->currentPage() == 1)
+                @foreach($bairrosEnderecoAtendidos as $bairro)
                     <tr>
-                        <th>Bairro</th>
-                        <th style="width: 220px;">Valor</th>
+                        <td>{{ $bairro->bairro_custom }}</td>
+                        <td class="text-center">
+                            <livewire:gestor.endereco.dne-endereco-atendido :uf="$ufeSg" :locNu="$locNu"
+                                                                            :enderecoAtendidoId="$bairro->id"
+                                                                            :index="$bairro->uuid()"
+                                                                            :key="$bairro->uuid()"/>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Customizados -->
-                    @if($bairros->currentPage() == 1)
-                        @foreach($bairrosEnderecoAtendidos as $bairro)
-                            <tr>
-                                <td>{{ $bairro->bairro_custom }}</td>
-                                <td>
-                                    <livewire:gestor.endereco.dne-endereco-atendido :uf="$ufeSg" :locNu="$locNu"
-                                                                                    :enderecoAtendidoId="$bairro->id"
-                                                                                    :index="$bairro->uuid()"
-                                                                                    :key="$bairro->uuid()"/>
-                                </td>
-                            </tr>
-                        @endforeach
-                    @endif
+                @endforeach
+            @endif
 
-                    @foreach($bairros as $bairro)
-                        <tr>
-                            <td>{{ $bairro->BAI_NO }}</td>
-                            <td>
-                                <livewire:gestor.endereco.dne-endereco-atendido :uf="$ufeSg" :locNu="$locNu"
-                                                                                :baiNu="$bairro->BAI_NU"
-                                                                                :index="$bairro->uuid()"
-                                                                                :key="$bairro->uuid()"/>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        @endif
+            @foreach($bairros as $bairro)
+                <tr>
+                    <td>{{ $bairro->BAI_NO }}</td>
+                    <td class="text-center">
+                        <livewire:gestor.endereco.dne-endereco-atendido :uf="$ufeSg" :locNu="$locNu"
+                                                                        :baiNu="$bairro->BAI_NU"
+                                                                        :index="$bairro->uuid()"
+                                                                        :key="$bairro->uuid()"/>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+@endif
     </div>
 
     <div class="card-footer clearfix">

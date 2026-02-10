@@ -80,23 +80,23 @@
                     </tbody>
                 </table>
             </div>
-        <?php elseif($tipoVisualizacao == 'bairro'): ?>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
+ <?php elseif($tipoVisualizacao == 'bairro'): ?>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Bairro</th>
+                
+                <th style="width: 80px; text-align: center;">Ação</th> 
+            </tr>
+            </thead>
+            <tbody>
+            <?php if($bairros->currentPage() == 1): ?>
+                <?php $__currentLoopData = $bairrosEnderecoAtendidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bairro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
-                        <th>Bairro</th>
-                        <th style="width: 220px;">Valor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Customizados -->
-                    <?php if($bairros->currentPage() == 1): ?>
-                        <?php $__currentLoopData = $bairrosEnderecoAtendidos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bairro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
-                                <td><?php echo e($bairro->bairro_custom); ?></td>
-                                <td>
-                                    <?php
+                        <td><?php echo e($bairro->bairro_custom); ?></td>
+                        <td class="text-center">
+                            <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('gestor.endereco.dne-endereco-atendido', ['uf' => $ufeSg,'locNu' => $locNu,'enderecoAtendidoId' => $bairro->id,'index' => $bairro->uuid()])->html();
 } elseif ($_instance->childHasBeenRendered($bairro->uuid())) {
@@ -111,16 +111,16 @@ if (! isset($_instance)) {
 }
 echo $html;
 ?>
-                                </td>
-                            </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            <?php endif; ?>
 
-                    <?php $__currentLoopData = $bairros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bairro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <tr>
-                            <td><?php echo e($bairro->BAI_NO); ?></td>
-                            <td>
-                                <?php
+            <?php $__currentLoopData = $bairros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bairro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <tr>
+                    <td><?php echo e($bairro->BAI_NO); ?></td>
+                    <td class="text-center">
+                        <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('gestor.endereco.dne-endereco-atendido', ['uf' => $ufeSg,'locNu' => $locNu,'baiNu' => $bairro->BAI_NU,'index' => $bairro->uuid()])->html();
 } elseif ($_instance->childHasBeenRendered($bairro->uuid())) {
@@ -135,13 +135,13 @@ if (! isset($_instance)) {
 }
 echo $html;
 ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                    </tbody>
-                </table>
-            </div>
-        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </tbody>
+        </table>
+    </div>
+<?php endif; ?>
     </div>
 
     <div class="card-footer clearfix">
