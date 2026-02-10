@@ -12,7 +12,7 @@ class UsuariosController extends Controller
         return view('gestor.usuarios.index', compact('usuarios'));
     }
 
-  /**ublic function destroy(User $user)
+  /*public function destroy(User $user)
     {
         $user->enderecos()->forceDelete();
         $user->delete();
@@ -29,7 +29,7 @@ class UsuariosController extends Controller
         $user->lgpdAceites()->delete();
     }
 
-    // 3. Apaga os pedidos vinculados (já que se chegou aqui, não são concluídos)
+    // 3. Apaga os pedidos vinculados
     // Isso evita o erro de integridade na tabela de pedidos
     if (method_exists($user, 'pedidos')) {
         $user->pedidos()->delete();

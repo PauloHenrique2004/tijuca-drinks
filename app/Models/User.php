@@ -88,7 +88,6 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\UserEndereco')->ativos();
     }
 
-
         public function lgpdAceites() 
         {
             return $this->hasMany('App\Models\LgpdAceite', 'user_id');

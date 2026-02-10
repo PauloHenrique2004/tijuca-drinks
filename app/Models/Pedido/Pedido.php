@@ -48,9 +48,34 @@ public static function boot()
         }
     }
 
-    // --- Mantemos os Scopes Originais ---
-    public function scopeFiltroId($query, $id) { /* ... original ... */ }
-    public function scopeFinalizadoEm($query, $de, $ate) { /* ... original ... */ }
+
+public function scopeFiltroId($query, $id)
+{
+    if (!$id) {
+        return $query;
+    }
+
+    return $query->where('id', '=', $id);
+}
+
+public function scopeFinalizadoEm($query, $de, $ate)
+{
+    if (!$de && !$ate) {
+        return $query;
+    }
+
+    if ($de && !$ate) {
+        return $query->where('finalizado_em', '>=', $de . ' 00:00:00');
+    } 
+    
+    if ($ate && !$de) {
+        return $query->where('finalizado_em', '<=', $ate . ' 23:59:59');
+    }
+
+    // Se tem os dois, usa o Between
+    return $query->whereBetween('finalizado_em', [$de . ' 00:00:00', $ate . ' 23:59:59']);
+}
+
     public function scopePendentes($query) { return $query->where('status', '=', "1"); }
     public function scopeFinalizados($query) { return $query->where('status', '=', "2"); }
     public function scopeSession($query, $session) { return $query->where('session', '=', $session); }

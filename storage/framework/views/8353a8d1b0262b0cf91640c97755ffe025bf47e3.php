@@ -1,5 +1,5 @@
 <?php $__env->startSection('title', 'Pedidos - '); ?>
-<?php $__env->startSection('header-title', 'teste'); ?>
+<?php $__env->startSection('header-title', 'Pedidos'); ?>
 
 <?php $__env->startSection('content'); ?>
     <div class="card-body">
@@ -47,11 +47,17 @@
                     <tr>
                         <td class="text-center"><?php echo e($pedido->id); ?></td>
 
-                        <td>
-                            <?php echo e($pedido->cliente ? $pedido->cliente->name : 'Visitante'); ?>
+            <td>
+                    <?php if($pedido->cliente): ?>
+                        
+                        <a href="<?php echo e(route('gestor.usuario', $pedido->cliente->id)); ?>" class="font-weight-bold">
+                            <i class="fas fa-external-link-alt fa-sm"></i> <?php echo e($pedido->cliente->name); ?>
 
-                        </td>
-
+                        </a>
+                    <?php else: ?>
+                        <span class="text-muted">Visitante</span>
+                    <?php endif; ?>  
+</td>
                         <td>
                             <div data-toggle="modal" data-target="#pedido<?php echo e($pedido->id); ?>Modal"
                                  style="text-align: center">
@@ -78,7 +84,7 @@
     </div>
 
     <div class="card-footer clearfix">
-        <?php echo e($pedidos->links()); ?>
+   <?php echo e($pedidos->appends(request()->all())->links()); ?>
 
     </div>
 <?php $__env->stopSection(); ?>
@@ -88,15 +94,15 @@
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('gestor.pedido-detalhe-txt', ['pedido' => $pedido])->html();
-} elseif ($_instance->childHasBeenRendered('94wLS3p')) {
-    $componentId = $_instance->getRenderedChildComponentId('94wLS3p');
-    $componentTag = $_instance->getRenderedChildComponentTagName('94wLS3p');
+} elseif ($_instance->childHasBeenRendered('CjITQZW')) {
+    $componentId = $_instance->getRenderedChildComponentId('CjITQZW');
+    $componentTag = $_instance->getRenderedChildComponentTagName('CjITQZW');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('94wLS3p');
+    $_instance->preserveRenderedChild('CjITQZW');
 } else {
     $response = \Livewire\Livewire::mount('gestor.pedido-detalhe-txt', ['pedido' => $pedido]);
     $html = $response->html();
-    $_instance->logRenderedChild('94wLS3p', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('CjITQZW', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

@@ -49,10 +49,16 @@
                     <tr>
                         <td class="text-center">{{ $pedido->id }}</td>
 
-                        <td>
-                            {{ $pedido->cliente ? $pedido->cliente->name : 'Visitante' }}
-                        </td>
-
+                   <td>
+                    @if($pedido->cliente)
+                        {{-- Link para o componente Livewire de edição --}}
+                        <a href="{{ route('gestor.usuario', $pedido->cliente->id) }}" class="font-weight-bold">
+                            <i class="fas fa-external-link-alt fa-sm"></i> {{ $pedido->cliente->name }}
+                        </a>
+                    @else
+                        <span class="text-muted">Visitante</span>
+                    @endif  
+                </td>
                         <td>
                             <div data-toggle="modal" data-target="#pedido{{ $pedido->id }}Modal"
                                  style="text-align: center">
@@ -77,7 +83,7 @@
     </div>
 
     <div class="card-footer clearfix">
-        {{ $pedidos->links() }}
+   {{ $pedidos->appends(request()->all())->links() }}
     </div>
 @endsection
 
