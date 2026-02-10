@@ -6,13 +6,17 @@
                 <div class="banner-principal-slider">
                     <?php $__currentLoopData = $topoBanners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div>
-                            <a href="<?php echo e($banner->link ?: '#'); ?>">
+                          <?php if($banner->link): ?>
+                             <a href="<?php echo e($banner->link); ?>" target="_blank" rel="noopener noreferrer">
+                          <?php endif; ?>
                                 <img
                                     src="<?php echo e(Storage::disk('storage_topo_banners')->url($banner->imagem_desktop)); ?>"
                                     alt="<?php echo e($banner->titulo); ?>"
                                     class="w-100 d-block rounded"
                                 >
+                            <?php if($banner->link): ?>
                             </a>
+                             <?php endif; ?>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
@@ -29,13 +33,17 @@
                 <div class="banner-principal-slider">
                     <?php $__currentLoopData = $topoBanners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div>
+                         <?php if($banner->link): ?>
                             <a href="<?php echo e($banner->link ?: '#'); ?>">
+                        <?php endif; ?>
                                 <img
                                     src="<?php echo e(Storage::disk('storage_topo_banners')->url($banner->imagem_mobile ?: $banner->imagem_desktop)); ?>"
                                     alt="<?php echo e($banner->titulo); ?>"
                                     class="w-100 d-block rounded"
                                 >
+                         <?php if($banner->link): ?>
                             </a>
+                         <?php endif; ?>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>

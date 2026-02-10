@@ -6,13 +6,17 @@
                 <div class="banner-principal-slider">
                     @foreach($topoBanners as $banner)
                         <div>
-                            <a href="{{ $banner->link ?: '#' }}">
+                          @if($banner->link)
+                             <a href="{{ $banner->link }}" target="_blank" rel="noopener noreferrer">
+                          @endif
                                 <img
                                     src="{{ Storage::disk('storage_topo_banners')->url($banner->imagem_desktop) }}"
                                     alt="{{ $banner->titulo }}"
                                     class="w-100 d-block rounded"
                                 >
+                            @if($banner->link)
                             </a>
+                             @endif
                         </div>
                     @endforeach
                 </div>
@@ -29,13 +33,17 @@
                 <div class="banner-principal-slider">
                     @foreach($topoBanners as $banner)
                         <div>
+                         @if($banner->link)
                             <a href="{{ $banner->link ?: '#' }}">
+                        @endif
                                 <img
                                     src="{{ Storage::disk('storage_topo_banners')->url($banner->imagem_mobile ?: $banner->imagem_desktop) }}"
                                     alt="{{ $banner->titulo }}"
                                     class="w-100 d-block rounded"
                                 >
+                         @if($banner->link)
                             </a>
+                         @endif
                         </div>
                     @endforeach
                 </div>

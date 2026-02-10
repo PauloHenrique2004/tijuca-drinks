@@ -89,8 +89,8 @@ $('.promo-slider').slick({
         dots: true,
         infinite: true,
         autoplay: true,
-        autoplaySpeed: 5000,
-        adaptiveHeight: true
+        autoplaySpeed: 3000,
+        adaptiveHeight: true,
     });
 
 
